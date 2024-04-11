@@ -1,0 +1,14 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import '~antd/dist/reset.css';
+
+.page-container{
+  width: auto;
+  height: 100vh;
+  background: #fff;
+}
+
+p {
+  margin: 0;
+}
