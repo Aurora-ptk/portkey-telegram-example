@@ -16,7 +16,6 @@ ConfigProvider.setGlobalConfig({
   requestDefaults: {
     baseURL: ApiHost,
   },
-  dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappv5",
   customNetworkType: "offline",
 });
 

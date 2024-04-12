@@ -7,10 +7,15 @@ import {
   SignIn,
   ISignIn,
   did,
+  ConfigProvider,
 } from "@portkey/did-ui-react";
 import "@portkey/did-ui-react/dist/assets/index.css";
 import { Button } from "antd";
 import { sleep } from "@portkey/utils";
+
+ConfigProvider.setGlobalConfig({
+  dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappv5",
+});
 
 export default function DappWebapp() {
   const signInRef = useRef<ISignIn>(null);
