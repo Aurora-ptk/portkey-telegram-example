@@ -7,12 +7,14 @@ import {
 } from "@portkey/did-ui-react";
 import { Button } from "antd";
 import React from "react";
+import { useRouter } from 'next/navigation';
 
 ConfigProvider.setGlobalConfig({
   dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappAssets",
 });
 
 export default function Assets() {
+  const router = useRouter();
   return (
     <PortkeyAssetProvider pin="111111" originChainId="AELF">
       <a href="dapp-webapp">
@@ -26,9 +28,9 @@ export default function Assets() {
         onLifeCycleChange={(lifeCycle) => {
           console.log(lifeCycle, "onLifeCycleChange");
         }}
-        // onDeleteAccount={() => {
-        //   router.replace("/sign");
-        // }}
+        onDeleteAccount={() => {
+          router.replace("/dapp-webapp");
+        }}
       />
     </PortkeyAssetProvider>
   );
