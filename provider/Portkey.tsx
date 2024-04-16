@@ -50,10 +50,23 @@ export default function PortkeyCustomProvider({
         </Button>
         <Button
           onClick={async () => {
+            localStorage.setItem(
+              "testCurrentPortkeyNetworkType",
+              networkType === "MAINNET" ? "TESTNET" : "MAINNET"
+            );
             setNetworkType((v) => (v === "MAINNET" ? "TESTNET" : "MAINNET"));
           }}
         >
           only change networkType
+        </Button>
+
+        <Button
+          onClick={async () => {
+            const VConsole = require("vconsole");
+            new VConsole();
+          }}
+        >
+          VConsole
         </Button>
         {children}
       </div>

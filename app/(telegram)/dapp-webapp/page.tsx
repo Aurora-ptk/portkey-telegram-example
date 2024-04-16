@@ -12,10 +12,14 @@ import {
 import "@portkey/did-ui-react/dist/assets/index.css";
 import { Button } from "antd";
 import { sleep } from "@portkey/utils";
+import { ChainId } from "@portkey/types";
 
 ConfigProvider.setGlobalConfig({
   dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappv5",
 });
+
+const PIN = "111111";
+let CHAIN_ID: ChainId = "AELF";
 
 export default function DappWebapp() {
   const signInRef = useRef<ISignIn>(null);
@@ -57,20 +61,76 @@ export default function DappWebapp() {
 
   return (
     <div>
-      <Button
-        onClick={async () => {
-          const VConsole = require("vconsole");
-          new VConsole();
-        }}
-      >
-        VConsole
-      </Button>
-
       <a href="dapp-assets">
         <Button>Go to assets</Button>
       </a>
 
       <Button onClick={setCurrentLifeCycle}>SetCurrentLifeCycle</Button>
+
+      <div>-----------</div>
+      <Button
+        onClick={async () => {
+          // Mock pin: 111111
+          const wallet = await did.load(PIN);
+          console.log(wallet, "wallet==load");
+        }}
+      >
+        load
+      </Button>
+      <Button
+        onClick={async () => {
+          // Mock pin: 111111
+          const wallet = await did.load(PIN);
+          console.log("wallet:", wallet);
+          // Mock chainId: 'AELF'
+          const result = await did.logout({ chainId: CHAIN_ID });
+          console.log(result, "logout====");
+        }}
+      >
+        logout
+      </Button>
+
+      <div>-----------</div>
+      <Button
+        onClick={async () => {
+          const isExist = await did.checkManagerIsExist({
+            chainId: "AELF",
+            caHash: did.didWallet.caInfo[CHAIN_ID].caHash,
+            managementAddress: did.didWallet.managementAccount?.address || "",
+          });
+          console.log(isExist, "isExist=AELF");
+        }}
+      >
+        checkManagerIsExist: AELF
+      </Button>
+
+      <div>-----------</div>
+      <Button
+        onClick={async () => {
+          const isExist = await did.checkManagerIsExist({
+            chainId: "tDVV",
+            caHash: did.didWallet.caInfo[CHAIN_ID].caHash,
+            managementAddress: did.didWallet.managementAccount?.address ?? "",
+          });
+          console.log(isExist, "isExist=tDVV");
+        }}
+      >
+        checkManagerIsExist: tDVV
+      </Button>
+
+      <div>-----------</div>
+      <Button
+        onClick={async () => {
+          const isExist = await did.checkManagerIsExist({
+            chainId: "tDVW",
+            caHash: did.didWallet.caInfo[CHAIN_ID].caHash,
+            managementAddress: did.didWallet.managementAccount?.address ?? "",
+          });
+          console.log(isExist, "isExist=tDVW");
+        }}
+      >
+        checkManagerIsExist: tDVW
+      </Button>
 
       <SignIn
         className="dapp-bot-sign"

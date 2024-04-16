@@ -12,3 +12,11 @@
 p {
   margin: 0;
 }
+
+.divider{
+  margin: 20px 0 2px;
+}
+
+.dynamic-value{
+  color: var(--portkey-ui-text-primary1);
+}

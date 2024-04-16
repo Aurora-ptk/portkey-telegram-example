@@ -20,6 +20,10 @@ export default function Assets() {
       <a href="dapp-webapp">
         <Button>Go to dapp-webapp</Button>
       </a>
+      <a href="utils-test">
+        <Button>Go to utils-test</Button>
+      </a>
+      
       <Asset
         faucet={{
           faucetContractAddress:
