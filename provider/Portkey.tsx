@@ -16,7 +16,7 @@ ConfigProvider.setGlobalConfig({
   requestDefaults: {
     baseURL: ApiHost,
   },
-  customNetworkType: "offline",
+  customNetworkType: "online",
 });
 
 export default function PortkeyCustomProvider({
