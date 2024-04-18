@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@portkey/contracts": "^2.5.0-alpha.29",
-    "@portkey/did-ui-react": "^2.5.0-alpha.29",
-    "@portkey/utils": "2.5.0-alpha.29",
+    "@portkey/contracts": "^2.5.0-alpha.30",
+    "@portkey/did-ui-react": "^2.5.0-alpha.30",
+    "@portkey/utils": "2.5.0-alpha.30",
     "aelf-sdk": "^3.2.45-beta.1",
     "antd": "^5.12.7",
     "axios": "^1.6.7",
