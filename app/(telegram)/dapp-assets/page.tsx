@@ -7,10 +7,14 @@ import {
 } from "@portkey/did-ui-react";
 import { Button } from "antd";
 import React from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 ConfigProvider.setGlobalConfig({
-  dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappAssets",
+  socialLogin: {
+    Telegram: {
+      dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappAssets",
+    },
+  },
 });
 
 export default function Assets() {
@@ -23,7 +27,7 @@ export default function Assets() {
       <a href="utils-test">
         <Button>Go to utils-test</Button>
       </a>
-      
+
       <Asset
         faucet={{
           faucetContractAddress:

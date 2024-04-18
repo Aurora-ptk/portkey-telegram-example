@@ -15,7 +15,11 @@ import { sleep } from "@portkey/utils";
 import { ChainId } from "@portkey/types";
 
 ConfigProvider.setGlobalConfig({
-  dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappv5",
+  socialLogin: {
+    Telegram: {
+      dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappv5",
+    },
+  },
 });
 
 const PIN = "111111";
