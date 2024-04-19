@@ -63,14 +63,17 @@ export default function DappWebapp() {
     did.save(didWallet.pin);
   }, []);
 
+  const resetCurrentLifeCycle = useCallback(async () => {
+    signInRef.current?.setCurrentLifeCycle(JSON.parse("{}"));
+  }, []);
+
   return (
     <div>
       <a href="dapp-assets">
         <Button>Go to assets</Button>
       </a>
-
       <Button onClick={setCurrentLifeCycle}>SetCurrentLifeCycle</Button>
-
+      <Button onClick={resetCurrentLifeCycle}>ResetLoginLocalStorage</Button>
       <div>-----------</div>
       <Button
         onClick={async () => {
