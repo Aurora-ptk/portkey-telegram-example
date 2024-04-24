@@ -19,6 +19,10 @@ ConfigProvider.setGlobalConfig({
       dappTelegramLink: "https://t.me/dapp3f5g7_bot/dapp3f5g7_app_auto_auth_testnet",
     },
   },
+  loginConfig: {
+    loginMethodsOrder: ['Telegram'],
+    recommendIndexes: [0],
+  },
 });
 
 export default function DappAutoAuth() {
