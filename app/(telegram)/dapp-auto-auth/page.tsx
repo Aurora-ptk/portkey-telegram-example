@@ -67,10 +67,15 @@ export default function DappAutoAuth() {
     signInRef.current?.setCurrentLifeCycle(JSON.parse("{}"));
   }, []);
 
+  const resetLoginStatus = useCallback(async () => {
+    localStorage.removeItem('portkey_sdk_did_wallet_v2');
+  }, []);
+
   return (
     <div>
       <Button onClick={setCurrentLifeCycle}>SetCurrentLifeCycle</Button>
       <Button onClick={resetCurrentLifeCycle}>ResetLoginLocalStorage</Button>
+      <Button onClick={resetLoginStatus}>ResetLoginStatus</Button>
       <div>-----------</div>
 
       <SignIn
