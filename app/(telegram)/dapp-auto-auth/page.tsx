@@ -84,6 +84,7 @@ export default function DappAutoAuth() {
         privacyPolicy={privacyPolicy}
         uiType="Full"
         ref={signInRef}
+        isShowScan={false}
         autoTelegramAuth
         onFinish={onFinish}
         onCancel={onCancel}
