@@ -9,14 +9,6 @@ import { Button } from "antd";
 import React from "react";
 import { useRouter } from "next/navigation";
 
-ConfigProvider.setGlobalConfig({
-  socialLogin: {
-    Telegram: {
-      dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappAssets",
-    },
-  },
-});
-
 export default function Assets() {
   const router = useRouter();
   return (

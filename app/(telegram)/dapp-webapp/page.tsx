@@ -1,6 +1,5 @@
 "use client";
 import { useCallback, useEffect, useRef } from "react";
-import { useEffectOnce } from "react-use";
 import { privacyPolicy, termsOfService } from "@/constants/common";
 import {
   DIDWalletInfo,
@@ -8,16 +7,16 @@ import {
   ISignIn,
   did,
   ConfigProvider,
+  TelegramPlatform,
 } from "@portkey/did-ui-react";
 import "@portkey/did-ui-react/dist/assets/index.css";
 import { Button } from "antd";
-import { sleep } from "@portkey/utils";
 import { ChainId } from "@portkey/types";
 
 ConfigProvider.setGlobalConfig({
   socialLogin: {
     Telegram: {
-      dappTelegramLink: "https://t.me/Dapp_V5_Bot/dappv5",
+      botId: '7013879783',
     },
   },
 });
@@ -27,22 +26,19 @@ let CHAIN_ID: ChainId = "AELF";
 
 export default function DappWebapp() {
   const signInRef = useRef<ISignIn>(null);
-  const TelegramRef = useRef<any>();
 
-  const getTelegram = useCallback(async () => {
-    if (typeof window !== "undefined") {
-      await sleep(1000);
-
-      TelegramRef.current = (window as any)?.Telegram;
-      if (!TelegramRef.current) return;
-
-      TelegramRef.current.WebApp.ready();
-    }
+  const handleLogout = useCallback(async () => {
+    // Mock pin: 111111
+    const wallet = await did.load(PIN);
+    console.log("wallet:", wallet);
+    // Mock chainId: 'AELF'
+    const result = await did.logout({ chainId: CHAIN_ID });
+    console.log(result, "logout====");
   }, []);
 
-  useEffectOnce(() => {
-    getTelegram();
-  });
+  useEffect(() => {
+    TelegramPlatform.initializeTelegramWebApp({ handleLogout });
+  }, [handleLogout]);
 
   const setCurrentLifeCycle = useCallback(async () => {
     signInRef.current?.setCurrentLifeCycle(
@@ -85,14 +81,7 @@ export default function DappWebapp() {
         load
       </Button>
       <Button
-        onClick={async () => {
-          // Mock pin: 111111
-          const wallet = await did.load(PIN);
-          console.log("wallet:", wallet);
-          // Mock chainId: 'AELF'
-          const result = await did.logout({ chainId: CHAIN_ID });
-          console.log(result, "logout====");
-        }}
+        onClick={handleLogout}
       >
         logout
       </Button>

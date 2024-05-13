@@ -5,14 +5,15 @@
   "scripts": {
     "dev-https": "next dev --experimental-https",
     "dev": "next dev",
+    "dev:testnet": "NEXT_PUBLIC_NETWORK_ENV=testnet next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@portkey/contracts": "2.5.0-alpha.51",
-    "@portkey/did-ui-react": "2.5.0-alpha.51",
-    "@portkey/utils": "2.5.0-alpha.51",
+    "@portkey/contracts": "2.5.1",
+    "@portkey/did-ui-react": "2.5.1",
+    "@portkey/utils": "2.5.1",
     "aelf-sdk": "^3.2.45-beta.1",
     "antd": "^5.12.7",
     "axios": "^1.6.7",
@@ -38,5 +39,20 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "vconsole": "3.15.1"
+  },
+  "resolutions": {
+    "@portkey/contracts": "2.5.1",
+    "@portkey/did-ui-react": "2.5.1",
+    "@portkey/ramp": "2.5.1",
+    "@portkey/socket": "2.5.1",
+    "@portkey/utils": "2.5.1",
+    "@portkey/did": "2.5.1",
+    "@portkey/graphql": "2.5.1",
+    "@portkey/onboarding": "2.5.1",
+    "@portkey/request": "2.5.1",
+    "@portkey/services": "2.5.1",
+    "@portkey/types": "2.5.1",
+    "@portkey/validator": "2.5.1",
+    "@portkey/accounts": "2.5.1"
   }
 }
